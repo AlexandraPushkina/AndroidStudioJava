@@ -6,71 +6,143 @@
     android:layout_height="match_parent"
     android:background="@color/mint">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="10dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="15dp"
-        tools:layout_editor_absoluteY="15dp">
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="casual"
+        android:text="@string/logoText"
+        android:textColor="@color/greenText"
+        android:textSize="25sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="31dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="15dp"
-            android:fontFamily="casual"
-            android:shadowColor="#990F4528"
-            android:shadowDx="3"
-            android:shadowDy="3"
-            android:shadowRadius="9"
-            android:text="Alexandra Pushkina's project"
-            android:textColor="@color/black" />
+    <EditText
+        android:id="@+id/result"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="400dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:inputType="number"
+        android:minWidth="400dp"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.363"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="LabelFor" />
 
-        <EditText
-            android:id="@+id/editTextText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:ems="10"
-            android:fontFamily="casual"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:text="Enter your name"
-            android:textColor="@color/greenText" />
+    <TableLayout
+        android:layout_width="383dp"
+        android:layout_height="260dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/result"
+        app:layout_constraintVertical_bias="1.0">
 
-        <Switch
-            android:id="@+id/switch1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:text="Student or Teacher" />
+        <TableRow
+            android:id="@+id/calculatorRow1"
+            style="@style/CalculatorRow">
 
-        <CheckBox
-            android:id="@+id/checkBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"
-            android:fontFamily="casual"
-            android:text="I'm agree with privacy policy" />
+            <Button
+                android:id="@+id/digit7"
+                style="@style/CalculatorButton"
+                android:text="@string/digit7" />
 
-        <Button
-            android:id="@+id/button"
-            style="@android:style/Widget.Button.Inset"
-            android:layout_width="153dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:width="50dp"
-            android:fontFamily="casual"
-            android:text="Submit"
-            app:strokeWidth="50dp" />
+            <Button
+                android:id="@+id/digit8"
+                style="@style/CalculatorButton"
+                android:text="@string/digit8" />
 
-        <CalendarView
-            android:id="@+id/calendarView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center"
-            android:layout_marginTop="50dp" />
-    </LinearLayout>
+            <Button
+                android:id="@+id/digit9"
+                style="@style/CalculatorButton"
+                android:text="@string/digit9" />
+
+            <Button
+                android:id="@+id/multiple"
+                style="@style/CalculatorButton"
+                android:text="@string/multiple" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/calculatorRow2"
+            style="@style/CalculatorRow">
+
+            <Button
+                android:id="@+id/digit4"
+                style="@style/CalculatorButton"
+                android:text="@string/digit4" />
+
+            <Button
+                android:id="@+id/digit5"
+                style="@style/CalculatorButton"
+                android:text="@string/digit5" />
+
+            <Button
+                android:id="@+id/digit6"
+                style="@style/CalculatorButton"
+                android:text="@string/digit6" />
+
+            <Button
+                android:id="@+id/division"
+                style="@style/CalculatorButton"
+                android:text="@string/division" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/calculatorRow3"
+            style="@style/CalculatorRow">
+
+            <Button
+                android:id="@+id/digit1"
+                style="@style/CalculatorButton"
+                android:text="@string/digit1" />
+
+            <Button
+                android:id="@+id/digit2"
+                style="@style/CalculatorButton"
+                android:text="@string/digit2" />
+
+            <Button
+                android:id="@+id/digit3"
+                style="@style/CalculatorButton"
+                android:text="@string/digit3" />
+
+            <Button
+                android:id="@+id/plus"
+                style="@style/CalculatorButton"
+                android:text="@string/plus" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/calculatorRow4"
+            style="@style/CalculatorRow">
+
+            <Button
+                android:id="@+id/plusMinus"
+                style="@style/CalculatorButton"
+                android:text="@string/plusMinus" />
+
+            <Button
+                android:id="@+id/digit0"
+                style="@style/CalculatorButton"
+                android:text="@string/digit0" />
+
+            <Button
+                android:id="@+id/equal"
+                style="@style/CalculatorButtonEqual"
+                android:text="@string/equal" />
+
+            <Button
+                android:id="@+id/minus"
+                style="@style/CalculatorButton"
+                android:text="@string/minus" />
+        </TableRow>
+    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

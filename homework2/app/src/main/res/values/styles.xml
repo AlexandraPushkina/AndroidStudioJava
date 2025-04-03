@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="CalculatorButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_weight">1</item> <!-- Для равномерного распределения кнопок -->
+        <item name="android:layout_marginRight">2sp</item>
+        <item name="android:layout_marginLeft">2sp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/greenText</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:strokeColor">@color/greenText</item>
+        <item name="android:strokeWidth">2</item>
+    </style>
+
+    <style name="CalculatorButtonEqual">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">1</item> <!-- Для равномерного распределения кнопок -->
+        <item name="android:layout_marginRight">2sp</item>
+        <item name="android:layout_marginLeft">2sp</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/greenText</item>
+    </style>
+
+    <style name="CalculatorRow">
+        <item name = "android:layout_width">match_parent</item>
+        <item name = "android:layout_height">match_parent</item>
+    </style>
+
+
+</resources>
