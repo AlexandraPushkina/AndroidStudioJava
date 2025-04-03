@@ -125,9 +125,9 @@
             style="@style/CalculatorRow">
 
             <Button
-                android:id="@+id/plusMinus"
-                style="@style/CalculatorButton"
-                android:text="@string/plusMinus" />
+                android:id="@+id/clear"
+                style="@style/CalculatorButtonClear"
+                android:text="@string/clear" />
 
             <Button
                 android:id="@+id/digit0"
