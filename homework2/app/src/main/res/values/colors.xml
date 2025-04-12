@@ -6,9 +6,13 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="white">#FFF</color>
+    <color name="lightMint">#DFF8E2</color>
     <color name="mint">#C6F0CA</color>
-    <color name="darkGreenShadow">#0F452899</color>
+    <color name="darkGreenShadow">#252C9928</color>
     <color name="greenText">#3A5445</color>
     <color name="red">#AB4949</color>
+    <color name="mintNight">#366249</color>
+    <color name="darkGreenShadowNight">#74105728</color>
+    <color name="greenTextNight">#9AE7BB</color>
 </resources>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- TODO: Realize themes if task will be receive-->
+    <!--<item android:state_night_mode="true" android:drawable="@drawable/ic_moon" />
+    <item android:drawable="@drawable/ic_sun" /> -->
+</selector>
