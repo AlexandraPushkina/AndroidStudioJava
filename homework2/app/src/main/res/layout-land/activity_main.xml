@@ -55,7 +55,7 @@
             android:autofillHints=""
             android:ems="10"
             android:inputType="number"
-            android:minHeight="48dp"
+            android:minHeight="54dp"
             android:singleLine="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

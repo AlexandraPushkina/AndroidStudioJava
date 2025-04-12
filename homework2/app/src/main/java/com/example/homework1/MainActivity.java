@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttons[15] = findViewById(R.id.equal);
 
         for (Button button : buttons) {
-            button.setOnClickListener((View.OnClickListener) this); // Используем MainActivity как обработчик
+            button.setOnClickListener((View.OnClickListener) this);
         }
         Result = findViewById(R.id.result);
     }
@@ -49,20 +48,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         if (buttonText.matches("[0-9]")) { // Regex
             Result.append(buttonText);
+        } else if (buttonText.equals("+")){
+            Result.append("+");
+        } else if (buttonText.equals("-")){
+            Result.append("-");
+        } else if (buttonText.equals("/")){
+            Result.append("/");
+        } else if (buttonText.equals("x")){  // multiple
+            Result.append("x");
         } else if (buttonText.equals("clear")) {
             Result.setText("");                 // TODO: realize clear function
         } else if (buttonText.equals("=")){
             String expression = Result.getText().toString();
             String result = calculatorLogic.calculate(expression);  // displays 0
             Result.setText(result);
-        } else if (buttonText.equals("+")){
-            Result.setText("+");
-        } else if (buttonText.equals("-")){
-            Result.setText("-");
-        } else if (buttonText.equals("/")){
-            Result.setText("/");
-        } else if (buttonText.equals("x")){  // multiple
-            Result.setText("x");
         }
     }
 }
