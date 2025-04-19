@@ -44,4 +44,12 @@ public class CalculatorLogic {
             return "Error: Invalid expression";
         }
     }
+
+    public String clear(String expression){
+        int expressionLength = expression.length();
+        if (expressionLength > 0)
+            return expression.substring(0, expressionLength - 1);
+        else
+            return expression;
+    }
 }

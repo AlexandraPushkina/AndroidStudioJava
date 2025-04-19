@@ -1,44 +1,71 @@
 package com.example.homework1;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.homework1.databinding.ActivityMainBinding;
+import com.example.homework1.databinding.NavHeaderBinding;
+import com.google.android.material.navigation.NavigationView;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener,
+                    NavigationView.OnNavigationItemSelectedListener  {
+
+    private ActivityMainBinding binding;
+    private NavHeaderBinding bindingHeader;
     private EditText Result;
     private final Button[] buttons = new Button[16];
     private CalculatorLogic calculatorLogic = new CalculatorLogic();
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main); // Linking Activity with layout-file activity_main.xml
 
-        buttons[0] = findViewById(R.id.digit0);  // R - folder res
-        buttons[1] = findViewById(R.id.digit1);
-        buttons[2] = findViewById(R.id.digit2);
-        buttons[3] = findViewById(R.id.digit3);
-        buttons[4] = findViewById(R.id.digit4);
-        buttons[5] = findViewById(R.id.digit5);
-        buttons[6] = findViewById(R.id.digit6);
-        buttons[7] = findViewById(R.id.digit7);
-        buttons[8] = findViewById(R.id.digit8);
-        buttons[9] = findViewById(R.id.digit9);
-        buttons[10] = findViewById(R.id.plus);
-        buttons[11] = findViewById(R.id.minus);
-        buttons[12] = findViewById(R.id.division);
-        buttons[13] = findViewById(R.id.multiple);
-        buttons[14] = findViewById(R.id.clear);
-        buttons[15] = findViewById(R.id.equal);
+        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+        Toolbar toolbar = binding.toolbar;
+        setSupportActionBar(binding.toolbar);
 
-        for (Button button : buttons) {
-            button.setOnClickListener((View.OnClickListener) this);
-        }
-        Result = findViewById(R.id.result);
+        drawerLayout = binding.drawerLayout;
+        NavigationView navigationView = binding.navView;
+
+        assert navigationView != null;
+        navigationView.setNavigationItemSelectedListener((NavigationView.OnNavigationItemSelectedListener) this);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+        binding.digit0.setOnClickListener(this);  // initialization + set action onClick()
+        binding.digit1.setOnClickListener(this);
+        binding.digit2.setOnClickListener(this);
+        binding.digit3.setOnClickListener(this);
+        binding.digit4.setOnClickListener(this);
+        binding.digit5.setOnClickListener(this);
+        binding.digit6.setOnClickListener(this);
+        binding.digit7.setOnClickListener(this);
+        binding.digit8.setOnClickListener(this);
+        binding.digit9.setOnClickListener(this);
+        binding.plus.setOnClickListener(this);
+        binding.minus.setOnClickListener(this);
+        binding.division.setOnClickListener(this);
+        binding.multiple.setOnClickListener(this);
+        binding.clear.setOnClickListener(this);
+        binding.equal.setOnClickListener(this);
+        binding.equal.setOnClickListener(this);
     }
 
     @Override
@@ -47,21 +74,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String buttonText = button.getText().toString();
 
         if (buttonText.matches("[0-9]")) { // Regex
-            Result.append(buttonText);
+            binding.result.append(buttonText);
         } else if (buttonText.equals("+")){
-            Result.append("+");
+            binding.result.append("+");
         } else if (buttonText.equals("-")){
-            Result.append("-");
+            binding.result.append("-");
         } else if (buttonText.equals("/")){
-            Result.append("/");
+            binding.result.append("/");
         } else if (buttonText.equals("x")){  // multiple
-            Result.append("x");
+            binding.result.append("x");
         } else if (buttonText.equals("clear")) {
-            Result.setText("");                 // TODO: realize clear function
+            String expression = binding.result.getText().toString();
+            String result = calculatorLogic.clear(expression);
+            binding.result.setText(result);
         } else if (buttonText.equals("=")){
-            String expression = Result.getText().toString();
-            String result = calculatorLogic.calculate(expression);  // displays 0
-            Result.setText(result);
+            String expression = binding.result.getText().toString();
+            String result = calculatorLogic.calculate(expression);
+            binding.result.setText(result);
         }
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+        return true;
     }
 }
