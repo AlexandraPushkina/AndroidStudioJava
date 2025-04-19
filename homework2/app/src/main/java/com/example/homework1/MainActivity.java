@@ -1,30 +1,25 @@
 package com.example.homework1;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.DialogFragment;
 
 import com.example.homework1.databinding.ActivityMainBinding;
-import com.example.homework1.databinding.NavHeaderBinding;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener,
                     NavigationView.OnNavigationItemSelectedListener  {
 
     private ActivityMainBinding binding;
-    private NavHeaderBinding bindingHeader;
-    private EditText Result;
-    private final Button[] buttons = new Button[16];
     private CalculatorLogic calculatorLogic = new CalculatorLogic();
     private DrawerLayout drawerLayout;
 
@@ -88,15 +83,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             String result = calculatorLogic.clear(expression);
             binding.result.setText(result);
         } else if (buttonText.equals("=")){
+            showResultDialog();
             String expression = binding.result.getText().toString();
             String result = calculatorLogic.calculate(expression);
             binding.result.setText(result);
         }
     }
 
+    private void showResultDialog() {
+        // Custom DialogFragment
+        ResultDialogFragment resultDialog = new ResultDialogFragment();
+        resultDialog.show(getSupportFragmentManager(), "result_dialog");
+    }
+
+    public static class ResultDialogFragment extends DialogFragment {
+        @NonNull
+        @Override
+        public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(requireActivity());
+            builder.setTitle("Result")
+                    .setMessage("You clicked on result")
+                    .setPositiveButton("OK", null);
+            return builder.create();
+        }
+    }
+
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         return true;
     }
 }
