@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="NoteStyle">
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="NoteStyle.LightPink">
+        <item name="noteBackgroundColor">#EFC5C5</item>
+    </style>
+
+    <style name="NoteStyle.LightGreen">
+    <item name="noteBackgroundColor">#C5EDC5</item>
+    </style>
+
+    <style name="NoteStyle.LightBlue">
+    <item name="noteBackgroundColor">#C1DDF4</item>
+    </style>
+
+    <style name="NoteStyle.LightYellow">
+        <item name="noteBackgroundColor">#FAF5D5</item>
+    </style>
+
+</resources>
