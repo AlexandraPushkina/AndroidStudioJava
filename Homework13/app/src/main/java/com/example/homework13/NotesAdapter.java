@@ -15,7 +15,10 @@ import java.util.List;
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
     private List<Note> notes;
-    private int[] styles = {R.style.NoteStyle_LightPink, R.style.NoteStyle_LightGreen, R.style.NoteStyle_LightBlue, R.style.NoteStyle_LightYellow};
+    private int[] styles = {R.style.NoteStyle_LightPink,
+            R.style.NoteStyle_LightGreen,
+            R.style.NoteStyle_LightBlue,
+            R.style.NoteStyle_LightYellow};
 
     public NotesAdapter(List<Note> notes) {
         this.notes = notes;
@@ -56,5 +59,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             titleTextView = itemView.findViewById(R.id.note_title);
             textTextView = itemView.findViewById(R.id.note_text);
         }
+    }
+    public void setNotes(List<Note> notes) {
+        this.notes = notes;
     }
 }
