@@ -14,7 +14,7 @@ import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHolder> {
 
-    private List<Note> notes;
+    private static List<Note> notes;
     private int[] styles = {R.style.NoteStyle_LightPink,
             R.style.NoteStyle_LightGreen,
             R.style.NoteStyle_LightBlue,
@@ -58,9 +58,31 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NoteViewHold
             super(itemView);
             titleTextView = itemView.findViewById(R.id.note_title);
             textTextView = itemView.findViewById(R.id.note_text);
+            itemView.setOnLongClickListener(v -> true);
+            itemView.setOnClickListener(v -> {
+                int adapterPosition = getAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION) {
+                    // todo: open another activity
+                }
+            });
+            }
         }
-    }
     public void setNotes(List<Note> notes) {
         this.notes = notes;
     }
+
+    public static Note getNoteAt(int position) {
+        if (position >= 0 && position < notes.size()) {
+            return notes.get(position);
+        } else {
+            return null;  //TODO: make an exception?
+        }
+    }
+
+    public static void removeNote(int position) {
+        if (position >= 0 && position < notes.size()) {
+            notes.remove(position);
+        }
+    }
+
 }
